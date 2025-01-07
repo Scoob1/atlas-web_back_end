@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-type-annotated function concat that takes a str1 and a str2 as args and returns a concat string.
+type-annotated function concat that takes a str1 and a str2 as args,
+and returns a concat string.
 """
 
 
