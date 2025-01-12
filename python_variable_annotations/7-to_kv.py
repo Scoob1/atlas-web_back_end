@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-Type-annotated function to_kv that returns a tuple containing a string and the square of a num.
+Type-annotated function to_kv
+that returns a tuple containing a string and the square of a num.
 """
 
 from typing import Union, Tuple
