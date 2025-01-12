@@ -2,11 +2,12 @@
 """A coroutine that measures the total runtime of four async_comprehension calls."""
 import asyncio
 import time
+import importlib
 
 from typing import List
 
 
-async_comprehension = __import__('1-async_comprehension').async_comprehension
+async_comprehension = importlib.import_module('1-async_comprehension').async_comprehension
 
 async def measure_runtime() -> float:
     """A coroutine that measures the total runtime of four async_comprehension calls."""
