@@ -9,7 +9,7 @@ wait_random_module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(wait_random_module)
 
 
-async def wait_n(n: int, max_delay: int) -> list:
+async def wait_n(n: int, max_delay: int) -> List[float]:
     """
     Spawns n wait_random coroutines and returns their delays in ascending order.
 
