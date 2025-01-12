@@ -21,5 +21,5 @@ async def wait_n(n: int, max_delay: int) -> List[float]:
     Returns:
         List[float]: List of delays in ascending order.
     """
-    delays = [await wait_random(max_delay) for _ in range(n)]
+    delays = [await wait_random_module.wait_random(max_delay) for _ in range(n)]
     return delays
