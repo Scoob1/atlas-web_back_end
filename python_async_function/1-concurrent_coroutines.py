@@ -2,7 +2,11 @@
 """Module that spawns multiple wait_random coroutines concurrently."""
 
 import asyncio
-from 0_basic_async_syntax import wait_random
+import importlib.util
+
+spec = importlib.util.spec_from_file_location("wait_random", "./0-basic_async_syntax.py")
+wait_random_module = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(wait_random_module)
 
 
 async def wait_n(n: int, max_delay: int) -> list:
