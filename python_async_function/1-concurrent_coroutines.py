@@ -3,6 +3,7 @@
 
 import asyncio
 import importlib.util
+from typing import List
 
 spec = importlib.util.spec_from_file_location("wait_random", "./0-basic_async_syntax.py")
 wait_random_module = importlib.util.module_from_spec(spec)
