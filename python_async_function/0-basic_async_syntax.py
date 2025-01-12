@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+"""Coroutine that waits for a random delay up to max_delay."""
+
+
 import asyncio
 import random
 
