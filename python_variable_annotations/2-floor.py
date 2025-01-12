@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-type-annotated function floor which takes a float n as arg and returns the floor of the float.
+type-annotated funct floor that takes a float as arg,
+and returns the floor of the float.
 """
 
 import math
