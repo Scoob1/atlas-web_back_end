@@ -5,7 +5,9 @@ import asyncio
 import importlib.util
 from typing import List
 
-spec = importlib.util.spec_from_file_location("wait_random", "./0-basic_async_syntax.py")
+spec = importlib.util.spec_from_file_location(
+    "wait_random", "./0-basic_async_syntax.py"
+)
 wait_random_module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(wait_random_module)
 
@@ -21,5 +23,7 @@ async def wait_n(n: int, max_delay: int) -> List[float]:
     Returns:
         List[float]: List of delays in ascending order.
     """
-    delays = await asyncio.gather(*(wait_random_module.wait_random(max_delay) for _ in range(n)))
+    delays = await asyncio.gather(
+        *(wait_random_module.wait_random(max_delay) for _ in range(n))
+)
     return sorted(delays)
