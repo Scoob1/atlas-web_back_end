@@ -16,8 +16,9 @@ task_wait_random = __import__('3-tasks').task_wait_random
 
 async def task_wait_n(n: int, max_delay: int) -> List[float]:
     """
-    Spawns n task_wait_random coroutines and returns their delays in ascending order.
-    
+    Spawns n task_wait_random coroutines and returns
+    their delays in ascending order.
+
     Args:
         n (int): Number of tasks to spawn.
         max_delay (int): Maximum delay for each task.
