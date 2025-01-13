@@ -7,7 +7,8 @@ import importlib
 from typing import List
 
 
-async_comprehension = importlib.import_module('1-async_comprehension').async_comprehension
+async_comprehension = importlib.import_module
+('1-async_comprehension').async_comprehension
 
 
 async def measure_runtime() -> float:
