@@ -3,6 +3,7 @@
 
 import asyncio
 import importlib.util
+from typing import List
 
 spec = importlib.util.spec_from_file_location(
     "wait_random", "./0-basic_async_syntax.py"
@@ -13,7 +14,7 @@ spec.loader.exec_module(wait_random_module)
 task_wait_random = __import__('3-tasks').task_wait_random
 
 
-async def task_wait_n(n: int, max_delay: int) -> list:
+async def task_wait_n(n: int, max_delay: int) -> List[float]:
     """
     Spawns n task_wait_random coroutines and returns their delays in ascending order.
     
