@@ -14,10 +14,10 @@ def task_wait_random(max_delay: int) -> asyncio.Task:
     """
     Takes an integer max_delay and returns an asyncio.Task that runs
     the wait_random function.
-    
+
     Args:
         max_delay (int): Maximum delay for wait_random.
-    
+
     Returns:
         asyncio.Task: A Task that runs the wait_random function.
     """
