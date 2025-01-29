@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+"""
+This module contains the implementation of the MRUCache class.
+"""
+
 from base_caching import BaseCaching
 
 
