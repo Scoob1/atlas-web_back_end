@@ -22,7 +22,7 @@ class LRUCache(BaseCaching):
     def put(self, key, item):
         """
         Adds an item to the cache.
-        
+
         If the cache exceeds the limit, removes the least recently used item.
         """
         if key is not None and item is not None:
