@@ -17,15 +17,13 @@ class LIFOCache(BaseCaching):
         """ Add an item to the cache """
         if key is not None and item is not None:
             if key in self.cache_data:
-                # If key already exists, just update it
                 self.cache_data[key] = item
             elif len(self.cache_data) >= BaseCaching.MAX_ITEMS:
-                # If the cache is full, remove the last added item
-                discarded_key = next(reversed(self.cache_data))  # Get last key added
+                discarded_key = next(
+                    reversed(self.cache_data))
                 del self.cache_data[discarded_key]
                 print(f"DISCARD: {discarded_key}")
 
-            # Add the new item
             self.cache_data[key] = item
 
     def get(self, key):
