@@ -1,4 +1,10 @@
 #!/usr/bin/env python3
+"""
+This module filters and obfuscates sensitive fields in log messages.
+
+It provides a function `filter_datum` that replaces specified fields with a redaction string.
+"""
+
 import re
 from typing import List
 
