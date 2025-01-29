@@ -2,7 +2,8 @@
 """
 This module filters and obfuscates sensitive fields in log messages.
 
-It provides a function `filter_datum` that replaces specified fields with a redaction string.
+It provides a function `filter_datum` that
+replaces specified fields with a redaction string.
 """
 
 import re
