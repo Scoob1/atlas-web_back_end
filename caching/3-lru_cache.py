@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+
+"""
+LRUCache that inherits from BaseCaching and is a caching system
+"""
 from collections import OrderedDict
 from base_caching import BaseCaching
 
