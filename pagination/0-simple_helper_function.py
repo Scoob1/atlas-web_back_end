@@ -3,6 +3,7 @@
 Pagination helper function.
 """
 
+
 def index_range(page: int, page_size: int) -> tuple:
     """
     Returns the start and end index for a given page.
