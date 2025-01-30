@@ -54,3 +54,15 @@ class RedactingFormatter(logging.Formatter):
         )
         record.msg = message
         return super().format(record)
+
+
+# task 2
+def get_logger() -> logging.Logger:
+    """Create and configure a logger for user data."""
+    logger = logging.getLogger("user_data")
+    logger.setLevel(logging.INFO)
+    logger.propagate = False
+    handler = logging.StreamHandler()
+    handler.setFormatter(RedactingFormatter(PII_FIELDS))
+    logger.addHandler(handler)
+    return logger
