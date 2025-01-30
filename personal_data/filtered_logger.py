@@ -9,6 +9,7 @@ replaces specified fields with a redaction string.
 import logging
 import re
 from typing import List
+import os
 import mysql.connector
 from mysql.connector.connection import MySQLConnection
 
