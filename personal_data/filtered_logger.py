@@ -9,6 +9,8 @@ replaces specified fields with a redaction string.
 import logging
 import re
 from typing import List
+import mysql.connector
+from mysql.connector.connection import MySQLConnection
 
 
 # task 0.
@@ -69,7 +71,7 @@ def get_logger() -> logging.Logger:
 
 
 # task 3
-def get_db() -> mysql.connector.connection.MySQLConnection:
+def get_db() -> MySQLConnection:
     """Connect to the secure database and return a MySQLConnection object."""
     return mysql.connector.connect(
         user=os.getenv("PERSONAL_DATA_DB_USERNAME", "root"),
