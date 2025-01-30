@@ -31,8 +31,8 @@ def before_request():
             auth = Auth()
 
 
-            if auth is None:
-                return
+    if auth is None:
+        return
 
     excluded_paths = ['/api/v1/status/',
                       '/api/v1/unauthorized/',
