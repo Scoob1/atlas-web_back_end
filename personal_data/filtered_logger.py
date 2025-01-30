@@ -9,7 +9,6 @@ replaces specified fields with a redaction string.
 import logging
 import re
 from typing import List
-from filtered_logger import PII_FIELDS
 
 
 # task 0.
