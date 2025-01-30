@@ -41,10 +41,12 @@ class RedactingFormatter(logging.Formatter):
     SEPARATOR = ";"
 
     def __init__(self, fields: List[str]):
+        """Initialize with fields."""
         super(RedactingFormatter, self).__init__(self.FORMAT)
         self.fields = fields
 
     def format(self, record: logging.LogRecord) -> str:
+        """Format log record."""
         message = record.getMessage()
         # Use filter_datum to redact the fields in the message
         message = filter_datum(
