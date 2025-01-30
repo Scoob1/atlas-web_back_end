@@ -21,20 +21,24 @@ if AUTH_TYPE == "auth":
     from api.v1.auth.auth import Auth
     auth = Auth()
 
+
 @app.before_request
 def before_request():
     """ Filter requests before processing """
     if auth is None:
         return
-    
-    excluded_paths = ['/api/v1/status/', '/api/v1/unauthorized/', '/api/v1/forbidden/']
+
+    excluded_paths = ['/api/v1/status/',
+                      '/api/v1/unauthorized/',
+                      '/api/v1/forbidden/'
+                      ]
     
     if not auth.require_auth(request.path, excluded_paths):
         return
-    
+
     if auth.authorization_header(request) is None:
         abort(401, description="Unauthorized")
-    
+
     if auth.current_user(request) is None:
         abort(403, description="Forbidden")
 
