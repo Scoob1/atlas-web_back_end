@@ -13,6 +13,8 @@ import os
 import mysql.connector
 from mysql.connector.connection import MySQLConnection
 
+PII_FIELDS = ["name", "email", "phone", "ssn", "password"]
+
 
 # task 0.
 def filter_datum(fields: List[str],
@@ -80,3 +82,29 @@ def get_db() -> MySQLConnection:
         host=os.getenv("PERSONAL_DATA_DB_HOST", "localhost"),
         database=os.getenv("PERSONAL_DATA_DB_NAME")
     )
+
+# task 4
+def main():
+    """Main function that fetches all users from the database, 
+    filters their data, 
+    and logs it in a redacted format."""
+    db = get_db()
+
+    logger = get_logger()
+
+    cursor = db.cursor()
+
+    cursor.execute("SELECT name, email, phone, ssn, password, ip, last_login, user_agent FROM users")
+
+    rows = cursor.fetchall()
+
+    for row in rows:
+        message = f'name={row[0]}; email={row[1]}; phone={row[2]}; ssn={row[3]}; password={row[4]}; ip={row[5]}; last_login={row[6]}; user_agent={row[7]}'
+        logger.info(message)
+
+    cursor.close()
+    db.close()
+
+
+if __name__ == "__main__":
+    main()
