@@ -47,4 +47,5 @@ class RedactingFormatter(logging.Formatter):
         message = record.getMessage()
         # Use filter_datum to redact the fields in the message
         message = filter_datum(self.fields, self.REDACTION, message, self.SEPARATOR)
-        return f"[HOLBERTON] {record.name} {record.levelname} {record.asctime}: {message}"
+        record.msg = message
+        return super().format(record)
