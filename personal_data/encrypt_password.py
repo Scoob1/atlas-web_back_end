@@ -3,6 +3,7 @@
 Module contains functions to encrypt password
 """
 
+
 import bcrypt
 
 
