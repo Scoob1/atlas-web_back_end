@@ -10,6 +10,7 @@ import logging
 import re
 from typing import List
 
+
 # task 0.
 def filter_datum(fields: List[str],
                  redaction: str, message: str, separator: str) -> str:
@@ -34,7 +35,7 @@ def filter_datum(fields: List[str],
 # task 1
 class RedactingFormatter(logging.Formatter):
     """Redacting Formatter class"""
-    
+
     REDACTION = "***"
     FORMAT = "[HOLBERTON] %(name)s %(levelname)s %(asctime)-15s: %(message)s"
     SEPARATOR = ";"
@@ -46,6 +47,7 @@ class RedactingFormatter(logging.Formatter):
     def format(self, record: logging.LogRecord) -> str:
         message = record.getMessage()
         # Use filter_datum to redact the fields in the message
-        message = filter_datum(self.fields, self.REDACTION, message, self.SEPARATOR)
+        message = filter_datum(self.fields, self.REDACTION,
+                                message, self.SEPARATOR)
         record.msg = message
         return super().format(record)
