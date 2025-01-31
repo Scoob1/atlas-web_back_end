@@ -11,7 +11,8 @@ class BasicAuth(Auth):
     """Handles basic authentication"""
 
     def extract_user_credentials(self,
-                                 decoded_base64_authorization_header: str) -> Tuple[str, str]:
+                                 decoded_base64_authorization_header:
+                                 str) -> Tuple[str, str]:
         """Extracts user email and password from the Base64 decoded value"""
         if not isinstance(decoded_base64_authorization_header, str):
             return None, None
@@ -23,7 +24,8 @@ class BasicAuth(Auth):
         return user_email, user_pwd
 
     def extract_base64_authorization_header(self,
-                                            authorization_header: str) -> str:
+                                            authorization_header:
+                                            str) -> str:
         """Returns Base64 part of Authorization header if valid"""
         if not isinstance(authorization_header, str):
             return None
@@ -42,7 +44,9 @@ class BasicAuth(Auth):
         except (TypeError, ValueError):
             return None
 
-    def extract_user_credentials(self, decoded_base64_authorization_header: str) -> (str, str):
+    def extract_user_credentials(self,
+                                 decoded_base64_authorization_header:
+                                 str) -> (str, str):
         """Extracts email and password from decoded Base64 string"""
         if not isinstance(decoded_base64_authorization_header, str):
             return None, None
@@ -64,7 +68,8 @@ class BasicAuth(Auth):
         return True
 
     def user_object_from_credentials(self, user_email:
-                                     str, user_pwd: str) -> TypeVar('User'):
+                                     str, user_pwd:
+                                     str) -> TypeVar('User'):
         """Returns User instance based on email and password"""
         if not isinstance(user_email, str) or not isinstance(user_pwd, str):
             return None
