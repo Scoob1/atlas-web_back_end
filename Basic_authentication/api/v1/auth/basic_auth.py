@@ -3,10 +3,23 @@
 """
 from api.v1.auth.auth import Auth
 from typing import List
+from typing import Tuple
 
 class BasicAuth(Auth):
     """Handles basic authentication"""
-    
+
+    def extract_user_credentials(self, decoded_base64_authorization_header: str) -> Tuple[str, str]:
+        """Extracts user email and password from the Base64 decoded value"""
+        if not isinstance(decoded_base64_authorization_header, str):
+            return None, None
+
+        if ':' not in decoded_base64_authorization_header:
+            return None, None
+
+        user_email, user_pwd = decoded_base64_authorization_header.split(":", 1)
+        
+        return user_email, user_pwd
+
     def extract_base64_authorization_header(self, authorization_header: str) -> str:
         """Returns Base64 part of Authorization header if valid"""
         if not isinstance(authorization_header, str):
@@ -46,3 +59,20 @@ class BasicAuth(Auth):
             return False
 
         return True
+
+
+    def user_object_from_credentials(self, user_email: str, user_pwd: str) -> TypeVar('User'):
+        """Returns User instance based on email and password"""
+        if not isinstance(user_email, str) or not isinstance(user_pwd, str):
+            return None
+
+        user = User.search({'email': user_email})
+        if not user:
+            return None
+
+        user = user[0]
+
+        if not user.is_valid_password(user_pwd):
+            return None
+
+        return user
