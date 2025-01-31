@@ -10,7 +10,8 @@ from models.user import User
 class BasicAuth(Auth):
     """Handles basic authentication"""
 
-    def extract_user_credentials(self, decoded_base64_authorization_header: str) -> Tuple[str, str]:
+    def extract_user_credentials(self,
+                                 decoded_base64_authorization_header: str) -> Tuple[str, str]:
         """Extracts user email and password from the Base64 decoded value"""
         if not isinstance(decoded_base64_authorization_header, str):
             return None, None
@@ -21,7 +22,8 @@ class BasicAuth(Auth):
         user_email, user_pwd = decoded_base64_authorization_header.split(":", 1)
         return user_email, user_pwd
 
-    def extract_base64_authorization_header(self, authorization_header: str) -> str:
+    def extract_base64_authorization_header(self,
+                                            authorization_header: str) -> str:
         """Returns Base64 part of Authorization header if valid"""
         if not isinstance(authorization_header, str):
             return None
@@ -61,7 +63,8 @@ class BasicAuth(Auth):
 
         return True
 
-    def user_object_from_credentials(self, user_email: str, user_pwd: str) -> TypeVar('User'):
+    def user_object_from_credentials(self, user_email:
+                                     str, user_pwd: str) -> TypeVar('User'):
         """Returns User instance based on email and password"""
         if not isinstance(user_email, str) or not isinstance(user_pwd, str):
             return None
