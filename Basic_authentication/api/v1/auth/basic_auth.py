@@ -3,6 +3,8 @@
 """
 
 import base64
+from typing import List
+
 
 class BasicAuth:
     """Basic authentication class inheriting from Auth"""
