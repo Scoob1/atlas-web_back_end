@@ -5,6 +5,8 @@ from api.v1.auth.session_auth import SessionAuth
 from models.user import User
 import uuid
 
+from api.v1.app import app
+
 
 auth = SessionAuth()
 
