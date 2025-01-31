@@ -20,7 +20,8 @@ class BasicAuth(Auth):
         if ':' not in decoded_base64_authorization_header:
             return None, None
 
-        user_email, user_pwd = decoded_base64_authorization_header.split(":", 1)
+        user_email, user_pwd =
+        decoded_base64_authorization_header.split(":", 1)
         return user_email, user_pwd
 
     def extract_base64_authorization_header(self,
@@ -33,7 +34,9 @@ class BasicAuth(Auth):
             return None
         return authorization_header.split(" ")[1]
 
-    def decode_base64_authorization_header(self, base64_authorization_header: str) -> str:
+    def decode_base64_authorization_header(self,
+                                           base64_authorization_header:
+                                           str) -> str:
         """Decodes Base64 string to UTF-8"""
         import base64
         if not isinstance(base64_authorization_header, str):
@@ -94,7 +97,8 @@ class BasicAuth(Auth):
         if authorization_header is None:
             return None
 
-        base64_header = self.extract_base64_authorization_header(authorization_header)
+        base64_header =
+        self.extract_base64_authorization_header(authorization_header)
         if base64_header is None:
             return None
 
