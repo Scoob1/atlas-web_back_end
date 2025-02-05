@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import unittest
+from unittest import TestCase
 from parameterized import parameterized
 from unittest.mock import patch, PropertyMock
 from client import GithubOrgClient
