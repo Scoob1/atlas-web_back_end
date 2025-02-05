@@ -8,7 +8,6 @@ from unittest.mock import Mock, patch
 from utils import get_json
 
 
-
 class TestAccessNestedMap(unittest.TestCase):
 
     @parameterized.expand([
@@ -38,8 +37,9 @@ class TestGetJson(unittest.TestCase):
     def test_get_json(self, name, test_url, test_payload):
         mock_response = Mock()
         mock_response.json.return_value = test_payload
-        
-        with patch("utils.requests.get", return_value=mock_response) as mock_get:
+
+        with patch("utils.requests.get",
+                   return_value=mock_response) as mock_get:
             self.assertEqual(get_json(test_url), test_payload)
             mock_get.assert_called_once_with(test_url)
 
@@ -56,10 +56,12 @@ class TestMemoize(unittest.TestCase):
 
     def test_memoize(self):
         instance = self.TestClass()
-        with patch.object(instance, 'a_method', return_value=42) as mocked_method:
+        with patch.object(instance, 'a_method',
+                          return_value=42) as mocked_method:
             self.assertEqual(instance.a_property, 42)
             self.assertEqual(instance.a_property, 42)
             mocked_method.assert_called_once()
+
 
 if __name__ == "__main__":
     unittest.main()
