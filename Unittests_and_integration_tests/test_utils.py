@@ -13,6 +13,9 @@ from utils import get_json
 
 
 class TestAccessNestedMap(unittest.TestCase):
+    """
+    Test accessing values in a nested dictionary
+    """
 
     @parameterized.expand([
         ({"a": 1}, ("a",), 1),
