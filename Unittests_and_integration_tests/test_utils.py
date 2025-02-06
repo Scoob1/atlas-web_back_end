@@ -15,11 +15,11 @@ from utils import get_json
 class TestAccessNestedMap(unittest.TestCase):
 
     @parameterized.expand([
-        ("simple_key", {"a": 1}, ("a",), 1),
-        ("nested_key", {"a": {"b": 2}}, ("a",), {"b": 2}),
-        ("deep_nested_key", {"a": {"b": 2}}, ("a", "b"), 2),
+        ({"a": 1}, ("a",), 1),
+        ({"a": {"b": 2}}, ("a",), {"b": 2}),
+        ({"a": {"b": 2}}, ("a", "b"), 2),
     ])
-    def test_access_nested_map(self, name, nested_map, path, expected):
+    def test_access_nested_map(self, nested_map, path, expected):
         """
         Test accessing values in a nested dictionary.
         """
