@@ -34,7 +34,7 @@ def access_nested_map(nested_map: Mapping, path: Sequence) -> Any:
     """
     for key in path:
         if not isinstance(nested_map, Mapping):
-            raise KeyError(f"'{key}'")
+            raise KeyError(key)
         nested_map = nested_map[key]
 
     return nested_map
