@@ -26,10 +26,10 @@ class TestAccessNestedMap(unittest.TestCase):
         self.assertEqual(access_nested_map(nested_map, path), expected)
 
     @parameterized.expand([
-        ("missing_key", {}, ("a",)),
-        ("nested_missing_key", {"a": 1}, ("a", "b")),
+        ({}, ("a",)),
+        ({"a": 1}, ("a", "b")),
     ])
-    def test_access_nested_map_exception(self, name, nested_map, path):
+    def test_access_nested_map_exception(self, nested_map, path):
         """
         Test missing key raises KeyError.
         """
