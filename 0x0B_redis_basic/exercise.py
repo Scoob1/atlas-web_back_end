@@ -10,6 +10,7 @@ import uuid
 import functools
 from typing import Union, Callable, Optional
 
+
 def count_calls(method: Callable) -> Callable:
     """Decorator to count how many times a method is called."""
     @functools.wraps(method)
@@ -42,7 +43,7 @@ def replay(method: Callable) -> None:
     output_key = f"{key}:outputs"
     inputs = redis_instance.lrange(input_key, 0, -1)
     outputs = redis_instance.lrange(output_key, 0, -1)
-    
+
     print(f"{key} was called {int(call_count) if call_count else 0} times:")
     for inp, out in zip(inputs, outputs):
         print(f"{key}(*{inp.decode('utf-8')}) -> {out.decode('utf-8')}")
@@ -64,7 +65,8 @@ class Cache:
         self._redis.set(key, data)
         return key
 
-    def get(self, key: str, fn: Optional[Callable] = None) -> Union[str, bytes, int, float, None]:
+    def get(self, key: str, fn:
+            Optional[Callable] = None) -> Union[str, bytes, int, float, None]:
         """Retrieve data from Redis and apply an optional conversion function."""
         data = self._redis.get(key)
         if data is None:
