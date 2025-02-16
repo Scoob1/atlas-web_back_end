@@ -67,7 +67,7 @@ class Cache:
 
     def get(self, key: str, fn:
             Optional[Callable] = None) -> Union[str, bytes, int, float, None]:
-        """Retrieve data from Redis and apply an optional conversion function."""
+        """Retrieve data from Redis, apply an opt conversion function."""
         data = self._redis.get(key)
         if data is None:
             return None
