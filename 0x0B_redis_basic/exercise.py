@@ -1,4 +1,9 @@
 #!/usr/bin/env python3
+"""
+This module provides a Cache class to interact with a Redis database.
+It includes decorators for counting method calls, storing call history,
+and replaying stored calls.
+"""
 
 import redis
 import uuid
