@@ -2,5 +2,5 @@
 SELECT band_name AS 'band_name',
         TIMESTAMPDIFF(YEAR, formed, IFNULL(split, '2024-01-01')) AS lifespan
 FROM metal_bands
-WHERE LOWER(style) = 'Glam rock'
+WHERE LOWER(style) = 'glam rock'
 ORDER BY lifespan DESC;
